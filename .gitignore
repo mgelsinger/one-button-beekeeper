@@ -1,9 +1,14 @@
-# Godot 4.5 specific
-.Godot/
+# Godot 4.x (includes 4.5)
+.godot/
 .import/
-export_presets.cfg
 
-# Godot exports
+# Local engine / tools (do not commit)
+Godot/
+
+# Local builds/output (do not commit)
+builds/
+
+# Exported packages/binaries (do not commit)
 *.pck
 *.exe
 *.x86_64

@@ -1,0 +1,170 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxk2qp8m3dwj7"]
+
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/hive.png" id="2_hive"]
+[ext_resource type="PackedScene" path="res://scenes/SettingsMenu.tscn" id="3_settings"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15, 0.18, 0.12, 1)
+
+[node name="MainVBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="HeaderMargin" type="MarginContainer" parent="MainVBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="HeaderHBox" type="HBoxContainer" parent="MainVBox/HeaderMargin"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MainVBox/HeaderMargin/HeaderHBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.5, 1)
+theme_override_font_sizes/font_size = 36
+text = "One Button Beekeeper"
+
+[node name="HeaderSpacer" type="Control" parent="MainVBox/HeaderMargin/HeaderHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SettingsButton" type="Button" parent="MainVBox/HeaderMargin/HeaderHBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Settings"
+
+[node name="ContentMargin" type="MarginContainer" parent="MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="ContentHBox" type="HBoxContainer" parent="MainVBox/ContentMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 60
+
+[node name="LeftColumn" type="VBoxContainer" parent="MainVBox/ContentMargin/ContentHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme_override_constants/separation = 16
+
+[node name="HiveContainer" type="Control" parent="MainVBox/ContentMargin/ContentHBox/LeftColumn"]
+custom_minimum_size = Vector2(300, 140)
+layout_mode = 2
+
+[node name="FlowerLayer" type="Control" parent="MainVBox/ContentMargin/ContentHBox/LeftColumn/HiveContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HiveSprite" type="TextureRect" parent="MainVBox/ContentMargin/ContentHBox/LeftColumn/HiveContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(48, 48)
+texture = ExtResource("2_hive")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BeeLayer" type="Control" parent="MainVBox/ContentMargin/ContentHBox/LeftColumn/HiveContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HoneyLabel" type="Label" parent="MainVBox/ContentMargin/ContentHBox/LeftColumn"]
+layout_mode = 2
+pivot_offset = Vector2(60, 12)
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 28
+text = "Honey: 0"
+
+[node name="HiveLabel" type="Label" parent="MainVBox/ContentMargin/ContentHBox/LeftColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.8, 0.6, 1)
+theme_override_font_sizes/font_size = 20
+text = "Hive: 0.0 / 25"
+
+[node name="HiveProgress" type="ProgressBar" parent="MainVBox/ContentMargin/ContentHBox/LeftColumn"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+max_value = 25.0
+show_percentage = false
+
+[node name="CollectButton" type="Button" parent="MainVBox/ContentMargin/ContentHBox/LeftColumn"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "Collect Honey"
+
+[node name="HintLabel" type="Label" parent="MainVBox/ContentMargin/ContentHBox/LeftColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.5, 1)
+theme_override_font_sizes/font_size = 14
+text = "Collect when the hive is full for maximum value."
+
+[node name="RightColumn" type="VBoxContainer" parent="MainVBox/ContentMargin/ContentHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="UpgradesHeaderLabel" type="Label" parent="MainVBox/ContentMargin/ContentHBox/RightColumn"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.85, 0.7, 1)
+theme_override_font_sizes/font_size = 24
+text = "Upgrades"
+
+[node name="UpgradesPanel" type="PanelContainer" parent="MainVBox/ContentMargin/ContentHBox/RightColumn"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="UpgradesVBox" type="VBoxContainer" parent="MainVBox/ContentMargin/ContentHBox/RightColumn/UpgradesPanel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="SettingsMenu" parent="." instance=ExtResource("3_settings")]
+
+[connection signal="pressed" from="MainVBox/HeaderMargin/HeaderHBox/SettingsButton" to="." method="_on_settings_button_pressed"]

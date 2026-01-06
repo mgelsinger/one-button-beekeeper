@@ -1,0 +1,24 @@
+# Godot 4.5 specific
+.Godot/
+.import/
+export_presets.cfg
+
+# Godot exports
+*.pck
+*.exe
+*.x86_64
+*.apk
+*.aab
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE/Editor
+*.swp
+*.swo
+*~
+.vscode/
+*.sublime-project
+*.sublime-workspace
